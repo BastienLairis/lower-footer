@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [moreText, setMoreText] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="container">
+      <header>Header</header>
+      <main>
+        <button onClick={() => setMoreText(!moreText)}>
+          {!moreText ? "Plus de texte" : "Moins de texte"}
+        </button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {moreText
+            ? "Un text long en plusieurs fois".repeat(2000)
+            : "Un court text"}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </main>
+      <footer>Footer</footer>
     </div>
   );
 }
